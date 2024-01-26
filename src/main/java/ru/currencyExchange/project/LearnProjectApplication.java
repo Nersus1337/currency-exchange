@@ -1,33 +1,20 @@
 package ru.currencyExchange.project;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
-import org.springframework.context.annotation.Bean;
-import org.springframework.core.env.Environment;
-import org.springframework.jdbc.datasource.DriverManagerDataSource;
-
-import javax.sql.DataSource;
 
 @SpringBootApplication
-public class LearnProjectApplication {
+public class LearnProjectApplication implements CommandLineRunner {
 
 	public static void main(String[] args) {
 		SpringApplication.run(LearnProjectApplication.class, args);
 	}
 
-	@Autowired
-	Environment env;
+	@Override
+	public void run(String... args) throws Exception {
 
-	@Bean
-	public DataSource dataSource() {
-		final DriverManagerDataSource dataSource = new DriverManagerDataSource();
-		dataSource.setDriverClassName(env.getProperty("driverClassName"));
-		dataSource.setUrl(env.getProperty("url"));
-		dataSource.setUsername(env.getProperty("user"));
-		dataSource.setPassword(env.getProperty("password"));
-		return dataSource;
 	}
-
 
 }
